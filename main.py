@@ -6,7 +6,7 @@ papers_folder = Path("papers")
 
 for paper in papers_folder.glob("*.txt"):
     with open(paper) as file:
-        for lines in file:
+        for line in file:
             question = lines.strip()
             if question:
                 questions.append(question)
@@ -19,10 +19,6 @@ for question in questions:
         print(f"{question} --> {count}")
         shown_questions.append(question)
 
-total_questions = 0
-print(questions)
-for question in questions:
-    count = questions.count(question)
-    total_questions += count
+total_questions = len(questions)
 
-print(total_questions)
+print(f"\nTotal questions: {total_questions}")
