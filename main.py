@@ -8,8 +8,7 @@ papers_folder = Path("papers")
 for paper in papers_folder.glob("*.txt"):
     with open(paper) as file:
         for line in file:
-            normalise_question(line)
-
+            question = normalise_question(line)
             if question:
                 questions.append(question)
 
