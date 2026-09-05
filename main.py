@@ -1,4 +1,5 @@
 from pathlib import Path
+import string
 
 questions = []
 
@@ -8,6 +9,8 @@ for paper in papers_folder.glob("*.txt"):
     with open(paper) as file:
         for line in file:
             question = line.lower().strip()
+            for punctuation in string.punctuation:
+                question = question.replace(punctuation, "")
             if question:
                 questions.append(question)
 
