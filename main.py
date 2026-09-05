@@ -1,5 +1,5 @@
 from pathlib import Path
-import string
+from text_utils import normalise_question
 
 questions = []
 
@@ -8,10 +8,7 @@ papers_folder = Path("papers")
 for paper in papers_folder.glob("*.txt"):
     with open(paper) as file:
         for line in file:
-            question = line.lower().strip()
-            for punctuation in string.punctuation:
-                question = question.replace(punctuation, "")
-            question = " ".join(question.split())
+            normalise_question(line)
 
             if question:
                 questions.append(question)
