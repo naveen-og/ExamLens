@@ -7,7 +7,7 @@ papers_folder = Path("papers")
 for paper in papers_folder.glob("*.txt"):
     with open(paper) as file:
         for line in file:
-            question = lines.strip()
+            question = lines.lower().strip()
             if question:
                 questions.append(question)
 
