@@ -11,6 +11,8 @@ for paper in papers_folder.glob("*.txt"):
             question = line.lower().strip()
             for punctuation in string.punctuation:
                 question = question.replace(punctuation, "")
+            question = " ".join(question.split())
+
             if question:
                 questions.append(question)
 
